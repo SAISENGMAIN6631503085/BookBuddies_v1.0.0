@@ -26,6 +26,8 @@ import VerifyAccountScreen from '../screens/VerifyAccountScreen';
 import PostBookScreen from '../screens/PostBookScreen';
 import BookManagementScreen from '../screens/BookManagementScreen';
 import ExchangeHistoryScreen from '../screens/ExchangeHistoryScreen';
+import ReviewsScreen from '../screens/ReviewsScreen';
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -93,6 +95,16 @@ const ExploreStack = () => (
   </Stack.Navigator>
 );
 
+const ReviewsStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen 
+      name="ReviewsScreen" 
+      component={ReviewsScreen}
+      options={{ headerShown: false }}
+    />
+  </Stack.Navigator>
+);
+
 const TabNavigator = () => {
   return (
     <Tab.Navigator
@@ -107,6 +119,8 @@ const TabNavigator = () => {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Explore') {
             iconName = focused ? 'compass' : 'compass-outline';
+          } else if (route.name === 'Reviews') {
+            iconName = focused ? 'star' : 'star-outline';
           } else if (route.name === 'Contact') {
             iconName = focused ? 'mail' : 'mail-outline';
           } else if (route.name === 'Profile') {
@@ -186,6 +200,10 @@ const TabNavigator = () => {
       <Tab.Screen 
         name="Explore" 
         component={ExploreStack}
+      />
+      <Tab.Screen 
+        name="Reviews" 
+        component={ReviewsStack}
       />
       <Tab.Screen 
         name="Contact" 
