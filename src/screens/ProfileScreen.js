@@ -97,10 +97,11 @@ const ProfileScreen = () => {
   };
 
   const menuOptions = [
-    { label: "Book Management", icon: "book-outline" },
-    { label: "Exchanging History", icon: "swap-horizontal-outline" },
-    { label: "Post Book(s) to Sell", icon: "cart-outline" },
-    { label: "Verify Account", icon: "pricetag-outline" },
+    { label: "Book Management", icon: "book-outline", screen: "BookManagement" },
+    { label: "Exchanging History", icon: "swap-horizontal-outline", screen: "ExchangeHistory" },
+    { label: "Post Book(s) to Sell", icon: "cart-outline", screen: "PostBook" },
+    { label: "Register to Sell", icon: "person-add-outline", screen: "RegisterToSell" },
+    { label: "Verify Account", icon: "pricetag-outline", screen: "VerifyAccount" },
   ];
 
   return (
@@ -276,32 +277,18 @@ const ProfileScreen = () => {
             </View>
           </View>
 
-          {menuOptions.map((item, index) => (
-            <TouchableOpacity 
-              key={index} 
-              style={styles.menuItem}
-              onPress={() => {
-                switch (item.label) {
-                  case "Verify Account":
-                    navigation.navigate('VerifyAccount');
-                    break;
-                  case "Book Management":
-                    navigation.navigate('BookManagement');
-                    break;
-                  case "Exchanging History":
-                    navigation.navigate('ExchangeHistory');
-                    break;
-                  case "Post Book(s) to Sell":
-                    navigation.navigate('PostBook');
-                    break;
-                }
-              }}
-            >
-              <Ionicons name={item.icon} size={20} color="#333" style={styles.menuIcon} />
-              <Text style={styles.menuText}>{item.label}</Text>
-              <Ionicons name="chevron-forward" size={20} color="#666" />
-            </TouchableOpacity>
-          ))}
+          <View style={styles.menuContainer}>
+            {menuOptions.map((option, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.menuItem}
+                onPress={() => navigation.navigate(option.screen)}
+              >
+                <Ionicons name={option.icon} size={24} color="#87CEEB" />
+                <Text style={styles.menuText}>{option.label}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
 
           <Button
             mode="outlined"
@@ -510,6 +497,18 @@ const styles = StyleSheet.create({
     height: 100,
     textAlignVertical: 'top',
   },
+  menuContainer: {
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius: 16,
+    marginTop: 16,
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
+  },
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -517,9 +516,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     borderRadius: 8,
     marginBottom: 8,
-  },
-  menuIcon: {
-    marginRight: 10,
   },
   menuText: {
     flex: 1,

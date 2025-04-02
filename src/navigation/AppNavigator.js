@@ -26,8 +26,8 @@ import VerifyAccountScreen from '../screens/VerifyAccountScreen';
 import PostBookScreen from '../screens/PostBookScreen';
 import BookManagementScreen from '../screens/BookManagementScreen';
 import ExchangeHistoryScreen from '../screens/ExchangeHistoryScreen';
-import ReviewsScreen from '../screens/ReviewsScreen';
-
+import ReviewsScreen from '../screens/ReviewScreen';
+import RegisterToSell from '../screens/RegisterToSell';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -246,6 +246,7 @@ const AppNavigator = () => {
           <Stack.Screen name="PostBook" component={PostBookScreen} />
           <Stack.Screen name="BookManagement" component={BookManagementScreen} />
           <Stack.Screen name="ExchangeHistory" component={ExchangeHistoryScreen} />
+          <Stack.Screen name="RegisterToSell" component={RegisterToSell} />
         </>
       )}
     </Stack.Navigator>
