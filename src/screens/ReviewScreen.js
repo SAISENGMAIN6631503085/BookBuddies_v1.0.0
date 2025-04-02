@@ -9,7 +9,7 @@ const ReviewsScreen = ({ route, navigation }) => {
   const [review, setReview] = useState('');
   const [pros, setPros] = useState('');
   const [cons, setCons] = useState('');
-  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [showReviewForm, setShowReviewForm] = useState(true);
   const [reviews, setReviews] = useState([
     {
       id: 1,

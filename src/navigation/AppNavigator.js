@@ -7,6 +7,7 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { useAuth } from '../context/AuthContext';
 import { IconButton } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 // Import screens
 import LoginScreen from '../screens/LoginScreen';
@@ -28,6 +29,7 @@ import BookManagementScreen from '../screens/BookManagementScreen';
 import ExchangeHistoryScreen from '../screens/ExchangeHistoryScreen';
 import ReviewsScreen from '../screens/ReviewScreen';
 import RegisterToSell from '../screens/RegisterToSell';
+import ChatScreen from '../screens/ChatScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -47,6 +49,16 @@ const HomeStack = () => (
     <Stack.Screen 
       name="BookDetail" 
       component={BookDetailScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen 
+      name="Reviews" 
+      component={ReviewsScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen 
+      name="Chat" 
+      component={ChatScreen}
       options={{ headerShown: false }}
     />
     <Stack.Screen 

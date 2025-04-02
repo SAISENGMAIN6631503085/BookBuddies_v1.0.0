@@ -165,8 +165,8 @@ const BookDetailScreen = () => {
       // Here you would typically send the report to your backend
       // For now, we'll just show a success message
       Alert.alert(
-        'Success',
-        'Thank you for your report. We will review it shortly.',
+        'Done',
+        'Your report has been submitted successfully.',
         [{ text: 'OK', onPress: () => {
           setShowReportModal(false);
           setSelectedReason('');
@@ -206,6 +206,12 @@ const BookDetailScreen = () => {
               onPress={handleReport}
             >
               <Ionicons name="flag-outline" size={24} color="#333" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.chatButton}
+              onPress={() => navigation.navigate('Chat')}
+            >
+              <Ionicons name="chatbubble-outline" size={24} color="#333" />
             </TouchableOpacity>
             <TouchableOpacity 
               style={styles.favoriteButton}
@@ -542,6 +548,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   reportButton: {
+    padding: 8,
+    marginRight: 8,
+  },
+  chatButton: {
     padding: 8,
     marginRight: 8,
   },
